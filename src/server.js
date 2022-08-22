@@ -19,6 +19,5 @@ app.use(express.urlencoded({extended: false}))
 
 app.use(express.static(path.join(__dirname, 'public')))
 
-app.get('/', (request, response) => {
-    response.render('index');
-})
+app.use(require('./routes/index.routes'))
+app.use(require('./routes/notes.routes'))
