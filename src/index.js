@@ -1,5 +1,7 @@
+require('dotenv').config();
 const app = require('./server');
+require('./db');
 
-app.listen(3000, ()=>{
-    console.log("App rodando na porta 3000")
+app.listen(process.env.API_PORT, ()=>{
+    console.log("App rodando na porta " + process.env.API_PORT)
 })
