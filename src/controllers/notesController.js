@@ -17,12 +17,15 @@ notesCtrl.postNote = async (request,response) => {
     response.redirect('/notes')
 }
 
-notesCtrl.getEditForm = (request,response) => {
-    response.send('getEditForm')
+notesCtrl.getEditForm = async (request,response) => {
+    const note = await Note.findById(request.params.id)
+    response.render('notes/editNote', { note })
 }
 
-notesCtrl.editForm = (request,response) => {
-    response.send('editForm')
+notesCtrl.editForm = async (request,response) => {
+    const { titulo, descricao, data, tipo} = request.body
+    await Note.findByIdAndUpdate(request.params.id, { titulo, descricao, data, tipo})
+    response.redirect("/notes")
 }
 
 notesCtrl.deleteForm = async (request, response) => {
