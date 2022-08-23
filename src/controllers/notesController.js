@@ -25,8 +25,10 @@ notesCtrl.editForm = (request,response) => {
     response.send('editForm')
 }
 
-notesCtrl.deleteForm = (request,response) => {
-    response.send('deleteForm')
+notesCtrl.deleteForm = async (request, response) => {
+    await Note.findByIdAndDelete(request.params.id)
+    response.redirect('/notes')
 }
+
 
 module.exports = notesCtrl;

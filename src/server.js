@@ -3,6 +3,8 @@ const path = require('path');
 const hbs = require('express-handlebars');
 const morgan = require('morgan');
 
+const methodOverride = require('method-override')
+
 const app = express();
 
 module.exports = app;
@@ -22,6 +24,8 @@ app.set('view engine', '.hbs');
 
 app.use(morgan('dev'))
 app.use(express.urlencoded({extended: false}))
+app.use(methodOverride('_method'));
+
 
 app.use(express.static(path.join(__dirname, 'public')))
 

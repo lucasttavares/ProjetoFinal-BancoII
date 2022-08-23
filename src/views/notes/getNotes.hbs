@@ -6,5 +6,8 @@
         <p>{{descricao}}</p>
         <p>{{data}}</p>
         <p>{{tipo}}</p>
+        <form action="/notes/delete/{{_id}}?_method=DELETE" method="POST">
+            <button type="submit" >Deletar</button>
+        </form>
     {{/each}}
 </div>
