@@ -1,0 +1,15 @@
+<div id="form">
+    <h2>Nova Nota</h2>
+    <form action="/notes/addNote" method="post">
+        <input name="titulo" type="text" placeholder="Titulo">
+        <textarea name="descricao" placeholder="Descrição"></textarea>
+        <input name="data" type="text" placeholder="dd/mm/aaaa">
+        <select name="tipo">
+            <option selected>-</option>
+            <option value="Urgente">Urgente</option>
+            <option value="Atenção">Atenção</option>
+            <option value="Comum">Comum</option>
+        </select>
+        <button>Salvar</button>
+    </form>
+</div>
