@@ -1,0 +1,10 @@
+<h2>Suas Notas</h2>
+
+<div>
+    {{#each notes}}
+        <h3>{{titulo}} <a href="/notes/edit/{{_id}}">Editar nota</a></h3>
+        <p>{{descricao}}</p>
+        <p>{{data}}</p>
+        <p>{{tipo}}</p>
+    {{/each}}
+</div>

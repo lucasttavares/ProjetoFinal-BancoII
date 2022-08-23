@@ -1,8 +1,9 @@
 const notesCtrl = {}
 const Note = require('../models/Notes');
 
-notesCtrl.getNotes = (request, response) => {
-    response.send('getNotes')
+notesCtrl.getNotes = async (request, response) => {
+    const notes = await Note.find();
+    response.render('notes/getNotes', { notes })
 }
 
 notesCtrl.getForm = (request,response) => {
@@ -13,7 +14,7 @@ notesCtrl.postNote = async (request,response) => {
     const { titulo, descricao, data, tipo } = request.body
     const newNote = new Note({titulo, descricao, data, tipo})
     await newNote.save();
-    response.send('Nota salva com sucesso')
+    response.redirect('/notes')
 }
 
 notesCtrl.getEditForm = (request,response) => {
