@@ -1,9 +1,9 @@
 <div id="form">
     <h2>Editar Nota</h2>
     <form action="/notes/edit/{{note.id}}?_method=PUT" method="post">
-        <input name="titulo" type="text" value="{{note.titulo}}">
-        <textarea name="descricao">{{note.descricao}}</textarea>
-        <input name="data" type="text" value="{{ note.data }}">
+        <input name="titulo" type="text" value="{{note.titulo}}" placeholder="Titulo">
+        <textarea name="descricao" placeholder="Descrição">{{note.descricao}}</textarea>
+        <input name="data" type="text" value="{{ note.data }}" placeholder="dd/mm/aaaa">
         <select name="tipo">
             <option selected> {{note.tipo}}</option>
             <option value="Urgente">Urgente</option>
